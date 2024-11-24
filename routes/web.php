@@ -32,7 +32,8 @@ Route::post('/tasks', function (Request $request) {
   $task->description = $data['description'];
   $task->long_description = $data['long_description'];
   $task->save();
-  return redirect()->route('tasks.show', ['id' => $task->id]);
+  return redirect()->route('tasks.show', ['id' => $task->id])
+    ->with('success', 'タスクを登録しました');
 })->name('tasks.store');
 
 Route::get('/tasks/{id}', function ($id) {
