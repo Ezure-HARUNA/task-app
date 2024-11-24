@@ -3,6 +3,7 @@
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Models\Task;
+use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
@@ -16,10 +17,21 @@ Route::get('/tasks', function () {
   ]);
 })->name('tasks.index');
 
-Route::get('tasks/{id}', function ($id) {
+Route::view('/tasks/create', 'create')
+  ->name('tasks.create');
+
+Route::post('/tasks', function (Request $request) {
+  dd($request->all());
+})->name('tasks.store');
+
+Route::get('/tasks/{id}', function ($id) {
 
   return view('show', ['task' => Task::findOrFail($id)]);
 })->name('tasks.show');
+
+
+
+
 
 // Route::get('/hello', function () {
 //   return 'Hello';
