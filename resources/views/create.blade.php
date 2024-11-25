@@ -16,21 +16,21 @@
     @csrf
     <div>
       <label for="title">タイトル</label>
-      <input type="text" name="title" id="title">
+      <input type="text" name="title" id="title" value="{{ old('title') }}">
       @error('title')
         <p class="error-message">{{ $message }}</p>
       @enderror
     </div>
     <div>
       <label for="description">概要</label>
-      <textarea name="description" rows="5"></textarea>
+      <textarea name="description" rows="5">{{ old('description') }}</textarea>
       @error('description')
         <p class="error-message">{{ $message }}</p>
       @enderror
     </div>
     <div>
       <label for="long_description">詳細</label>
-      <textarea name="long_description" rows="5"></textarea>
+      <textarea name="long_description" rows="5">{{ old('long_description') }}</textarea>
       @error('long_description')
         <p class="error-message">{{ $message }}</p>
       @enderror
