@@ -12,4 +12,12 @@
 
   <p>{{ $task->created_at }}</p>
   <p>{{ $task->updated_at }}</p>
+  <div>
+    <form action="{{ route('tasks.destroy', ['task' => $task->id]) }}" method="POST"
+      onsubmit="return confirm('本当に削除しますか？');">
+      @csrf
+      @method('DELETE')
+      <button type="submit">削除</button>
+    </form>
+  </div>
 @endsection

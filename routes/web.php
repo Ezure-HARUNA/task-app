@@ -45,6 +45,12 @@ Route::get('/tasks/{task}', function (Task $task) {
   return view('show', ['task' => $task]);
 })->name('tasks.show');
 
+Route::delete('/tasks/{task}', function (Task $task) {
+  $task->delete();
+  return redirect()->route('tasks.index')
+    ->with('success', 'タスクを削除しました');
+})->name('tasks.destroy');
+
 Route::fallback(function () {
   return 'Still got somewhere!';
 });
