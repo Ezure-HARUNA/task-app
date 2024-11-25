@@ -3,6 +3,10 @@
 
 @section('content')
   {{-- @if (count($tasks)) --}}
+  <div>
+    <a href="{{ route('tasks.create') }}">タスクを追加する</a>
+  </div>
+  <br>
   @forelse ($tasks as $task)
     <div>
       <a href="{{ route('tasks.show', ['task' => $task->id]) }}">{{ $task->title }}</a>
