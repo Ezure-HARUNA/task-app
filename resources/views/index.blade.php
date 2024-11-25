@@ -10,5 +10,8 @@
   @empty
     <div>タスクがありません</div>
   @endforelse
+  @if ($tasks->count())
+    <nav>{{ $tasks->links() }}</nav>
+  @endif
   {{-- @endif --}}
 @endsection
